@@ -1,19 +1,22 @@
 export const copy = {
   en: {
-    brand: "Sokneth",
+   
     role: "React and Java Developer",
     nav: {
       home: "Home",
       skills: "Skills",
       projects: "Projects",
+      certificates: "Certificates",
       about: "About",
       contact: "Contact",
     },
     ctaPrimary: "View Projects",
     ctaSecondary: "Contact Me",
     projectsLabel: "Selected Work",
+    certificatesLabel: "Credentials",
     skillsTitle: "Skills I use to build practical web apps",
     projectsTitle: "Projects that show both frontend and backend foundation",
+    certificatesTitle: "Certificates that support my developer path",
     contactTitle: "Let's build something useful",
     contactText:
       "Open to freelance work, internships, and junior developer roles focused on React, Spring Boot, and product development.",
@@ -24,20 +27,22 @@ export const copy = {
     footer: "Portfolio for Seum Sokneth",
   },
   km: {
-    brand: "Sokneth",
     role: "អ្នកអភិវឌ្ឍន៍ React និង Java",
     nav: {
       home: "ទំព័រដើម",
       skills: "ជំនាញ",
       projects: "គម្រោង",
+      certificates: "Certificates",
       about: "អំពីខ្ញុំ",
       contact: "ទំនាក់ទំនង",
     },
     ctaPrimary: "មើលគម្រោង",
     ctaSecondary: "ទាក់ទងខ្ញុំ",
     projectsLabel: "គម្រោងសំខាន់ៗ",
+    certificatesLabel: "Certificates",
     skillsTitle: "ជំនាញដែលខ្ញុំប្រើសម្រាប់បង្កើត web apps",
     projectsTitle: "គម្រោងដែលបង្ហាញពីមូលដ្ឋាន frontend និង backend",
+    certificatesTitle: "Certificates that support my developer path",
     contactTitle: "តោះបង្កើតអ្វីមួយដែលមានប្រយោជន៍",
     contactText:
       "បើកទទួលការងារ freelance, internship និង junior developer roles ដែលផ្តោតលើ React, Spring Boot និង product development។",
@@ -47,6 +52,77 @@ export const copy = {
     focusText: "React UI, REST API, Java backend",
     footer: "ផតថលីយ៉ូរបស់ Seum Sokneth",
   },
+};
+
+export const certificates = {
+  en: [
+    {
+      title: "React Front-End Development",
+      issuer: "Online Learning",
+      image: "https://i.pinimg.com/736x/99/ae/83/99ae8324c99a3101e670383bd2d7d517.jpg",
+      year: "2026",
+      status: "Completed",
+      focus: "Components, hooks, state, responsive UI",
+    },
+    {
+      title: "Java Programming Foundation",
+      issuer: "University Coursework",
+      image: "https://i.pinimg.com/736x/bd/6a/fc/bd6afccec721e72fb04ceef504929828.jpg",
+      year: "2025",
+      status: "Completed",
+      focus: "OOP, collections, control flow, problem solving",
+    },
+    {
+      title: "Web Design Essentials",
+      issuer: "Self-Study",
+      image: "https://i.pinimg.com/736x/f3/31/52/f33152ad476953e12e41d6d1b527a74f.jpg",
+      year: "2025",
+      status: "Completed",
+      focus: "HTML, CSS, Tailwind CSS, layout systems",
+    },
+    {
+      title: "Database and MySQL Basics",
+      issuer: "Practice Projects",
+      image: "https://i.pinimg.com/736x/c8/77/a0/c877a035cb98919e5876539cec86a542.jpg",
+      year: "2025",
+      status: "In Progress",
+      focus: "Schema design, CRUD, queries, relationships",
+    },
+  ],
+  km: [
+    {
+      title: "React Front-End Development",
+      issuer: "Online Learning",
+      image: "/images/cert-1.png",
+      year: "2026",
+      status: "Completed",
+      focus: "Components, hooks, state, responsive UI",
+    },
+    {
+      title: "Java Programming Foundation",
+      issuer: "University Coursework",
+      image: "/images/cert-2.png",
+      year: "2025",
+      status: "Completed",
+      focus: "OOP, collections, control flow, problem solving",
+    },
+    {
+      title: "Web Design Essentials",
+      issuer: "Self-Study",
+      image: "/images/cert-3.png",
+      year: "2025",
+      status: "Completed",
+      focus: "HTML, CSS, Tailwind CSS, layout systems",
+    },
+    {
+      title: "Database and MySQL Basics",
+      issuer: "Practice Projects",
+      image: "/images/cert-4.png",
+      year: "2025",
+      status: "In Progress",
+      focus: "Schema design, CRUD, queries, relationships",
+    },
+  ],
 };
 
 export const skills = {
@@ -61,10 +137,9 @@ export const skills = {
         bars: [
           { name: "HTML5", level: 95 },
           { name: "CSS3", level: 85 },
-          { name: "Bootstrap", level: 75 },
+          { name: "Bootstrap", level: 80 },
           { name: "Tailwind CSS", level: 90 },
           { name: "JavaScript", level: 85 },
-          { name: "JQuery (AJAX)", level: 70 },
           { name: "React.js", level: 80 },
         ],
       },
@@ -72,13 +147,14 @@ export const skills = {
         id: "backend",
         title: "Back-End",
         icon: "{ }",
-        items: ["Java", "Spring Boot", "REST API", "MySQL"],
+        items: ["Java", "Spring Boot", "REST API", "MySQL", "PostgreSQL"],
         barsTitle: "Back-End",
         bars: [
           { name: "Java", level: 90 },
           { name: "Spring Boot", level: 88 },
           { name: "REST API", level: 86 },
-          { name: "MySQL", level: 90},
+          { name: "MySQL", level: 90 },
+          { name: "PostgreSQL", level: 80 },
         ],
       },
       {
@@ -124,7 +200,6 @@ export const skills = {
           { name: "Bootstrap", level: 90 },
           { name: "Tailwind CSS", level: 90 },
           { name: "JavaScript", level: 85 },
-          { name: "JQuery (AJAX)", level: 85 },
           { name: "React.js", level: 85 },
         ],
       },
@@ -132,13 +207,14 @@ export const skills = {
         id: "backend",
         title: "ផ្នែកខាងក្រោយ",
         icon: "{ }",
-        items: ["Java", "Spring Boot", "REST API", "MySQL"],
+        items: ["Java", "Spring Boot", "REST API", "PostgreSQL", "MySQL"],
         barsTitle: "ផ្នែកខាងក្រោយ",
         bars: [
           { name: "Java", level: 90 },
           { name: "Spring Boot", level: 88 },
           { name: "REST API", level: 86 },
           { name: "MySQL", level: 82 },
+          { name: "PostgreSQL", level: 80 },
         ],
       },
       {
@@ -197,18 +273,20 @@ export const projects = {
     {
       name: "Portfolio Website",
       type: "React UI",
-      description: "គេហទំព័រផ្ទាល់ខ្លួនដែលមាន navigation រលូន, responsive sections និងការបង្ហាញជំនាញបានច្បាស់។",
+      description:
+        "គេហទំព័រផ្ទាល់ខ្លួនដែលមាន navigation រលូន, responsive sections និងការបង្ហាញជំនាញបានច្បាស់។",
     },
     {
       name: "Student Management API",
       type: "Spring Boot",
-      description: "សេវា backend សម្រាប់គ្រប់គ្រងទិន្នន័យសិស្ស ជាមួយ CRUD endpoints, validation និង MySQL។",
+      description:
+        "សេវា backend សម្រាប់គ្រប់គ្រងទិន្នន័យសិស្ស ជាមួយ CRUD endpoints, validation និង MySQL។",
     },
     {
       name: "Admin Dashboard",
       type: "Full Stack",
-      description: "គំនិត dashboard ដែលភ្ជាប់ frontend components ជាមួយ backend services សម្រាប់មើល records និង activity។",
+      description:
+        "គំនិត dashboard ដែលភ្ជាប់ frontend components ជាមួយ backend services សម្រាប់មើល records និង activity។",
     },
   ],
 };
-

@@ -1,4 +1,11 @@
-function Home({ isKhmer, profileImage, role, ctaPrimary, ctaSecondary, location }) {
+function Home({
+  isKhmer,
+  profileImage,
+  role,
+  ctaPrimary,
+  ctaSecondary,
+  location,
+}) {
   return (
     <section
       id="home"
@@ -6,25 +13,80 @@ function Home({ isKhmer, profileImage, role, ctaPrimary, ctaSecondary, location 
     >
       <div className="max-w-2xl">
         <p className="section-kicker">{isKhmer ? "Portfolio" : "Portfolio"}</p>
-        <h1 className="text-3xl font-extrabold leading-tight">
+        <div className="mt-8">
+         <div className="mt-4">
+            <div className="fx-typewriter">WEBDEVELOPER</div>
+          </div>
+          {/* <div
+            className="fx-wave inline-flex gap-1"
+            role="img"
+            aria-label="WAVE"
+          >
+            <b aria-hidden="true" style={{ "--i": "0" }}>
+              W{" "}
+            </b>
+            <b aria-hidden="true" style={{ "--i": "1" }}>
+              A
+            </b>
+            <b aria-hidden="true" style={{ "--i": "2" }}>
+              B
+            </b>
+            <b aria-hidden="true" style={{ "--i": "3" }}>
+              D
+            </b>
+            <b aria-hidden="true" style={{ "--i": "4" }}>
+              E
+            </b>
+            <b aria-hidden="true" style={{ "--i": "5" }}>
+              V
+            </b>
+            <b aria-hidden="true" style={{ "--i": "6" }}>
+              E
+            </b>
+            <b aria-hidden="true" style={{ "--i": "7" }}>
+              L
+            </b>
+            <b aria-hidden="true" style={{ "--i": "8" }}>
+              O
+            </b>
+            <b aria-hidden="true" style={{ "--i": "9" }}>
+              P
+            </b>
+            <b aria-hidden="true" style={{ "--i": "10" }}>
+              E
+            </b>
+            <b aria-hidden="true" style={{ "--i": "11" }}>
+              R
+            </b>
+          </div> */}
+
+          <div className="mt-4">
+            <div className="fx-aurora font-extrabold leading-tight">
+              "Hi, I'm Seum Sokneth. I build modern web experiences with React
+              and Spring Boot."
+            </div>
+          </div>
+        </div>
+        {/* <h1 className="text-3xl font-extrabold leading-tight">
           {isKhmer
             ? "សួស្តី ខ្ញុំជា Seum Sokneth។ ខ្ញុំបង្កើត modern web experiences ដោយប្រើ React និង Spring Boot។"
             : "Hi, I'm Seum Sokneth. I build modern web experiences with React and Spring Boot."}
-        </h1>
+        </h1> */}
+
         <p className="mt-6 max-w-xl text-base leading-8 text-(--muted)">
           {isKhmer
             ? "ខ្ញុំចូលចិត្តសាងសង់ UI ស្អាតៗ និង backend services ដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់ សម្រាប់ projects ដែលអាចប្រើការពិតបាន។"
             : "I enjoy building polished interfaces and structured backend services for projects that solve real problems."}
         </p>
-
+{/* 
         <div className="mt-8 flex flex-wrap gap-4">
-          <a href="#projects" className="button-primary">
+          <a href="#projects" className="button-primary ">
             {ctaPrimary}
           </a>
           <a href="#contact" className="button-secondary">
             {ctaSecondary}
           </a>
-        </div>
+        </div> */}
 
         <div className="mt-10 flex flex-wrap gap-8 text-sm text-(--muted)">
           <div>

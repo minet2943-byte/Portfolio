@@ -7,7 +7,7 @@ function Skill({
   title,
 }) {
   return (
-    <section id="skills" className="mx-auto max-w-5xl px-6 py-20">
+    <section id="skills" className="mx-auto max-w-6xl px-4 py-15">
       <div className="mb-10 max-w-2xl">
         <p className="section-kicker">{label}</p>
         <h2 className="section-title">{title}</h2>
@@ -50,7 +50,7 @@ function Skill({
           </div>
         </div>
 
-        <div className="space-y-8 p-6 sm:p-8">
+        <div className="space-y-4 p-4 sm:p-4">
           {selectedSkillGroup.bars.map((item) => (
             <div key={item.name}>
               <div className="mb-3 flex items-center justify-between gap-4">

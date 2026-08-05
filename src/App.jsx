@@ -4,9 +4,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Skill from "./pages/Skill";
 import Project from "./pages/Project";
+import Certificate from "./pages/Certificate";
 import Contact from "./pages/Contact";
 
-import { copy, projects, skills } from "./data/portfolioData";
+import { certificates, copy, projects, skills } from "./data/portfolioData";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,6 +29,7 @@ function App() {
   const t = isKhmer ? copy.km : copy.en;
   const skillItems = isKhmer ? skills.km : skills.en;
   const projectItems = isKhmer ? projects.km : projects.en;
+  const certificateItems = isKhmer ? certificates.km : certificates.en;
   const isDark = theme === "dark";
   const selectedSkillGroup =
     skillItems.groups.find((group) => group.id === activeSkillGroup) ?? skillItems.groups[0];
@@ -60,6 +62,9 @@ function App() {
             </a>
             <a href="#projects" className="transition hover:text-(--text)">
               {t.nav.projects}
+            </a>
+            <a href="#certificates" className="transition hover:text-(--text)">
+              {t.nav.certificates}
             </a>
             <a href="#about" className="transition hover:text-(--text)">
               {t.nav.about}
@@ -107,6 +112,9 @@ function App() {
               <a href="#projects" onClick={() => setMenuOpen(false)}>
                 {t.nav.projects}
               </a>
+              <a href="#certificates" onClick={() => setMenuOpen(false)}>
+                {t.nav.certificates}
+              </a>
               <a href="#about" onClick={() => setMenuOpen(false)}>
                 {t.nav.about}
               </a>
@@ -138,6 +146,12 @@ function App() {
         />
 
         <Project label={t.projectsLabel} projectItems={projectItems} title={t.projectsTitle} />
+
+        <Certificate
+          certificateItems={certificateItems}
+          label={t.certificatesLabel}
+          title={t.certificatesTitle}
+        />
 
         <About isKhmer={isKhmer} />
 

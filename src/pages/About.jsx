@@ -1,7 +1,7 @@
 const educationItems = [
   {
     school: "Royal University of Phnom Penh",
-    degree: "Bachelor of Science in ITE",
+    degree: "Bachelor of Information Technology Engineering",
     period: "2025 -> Present",
     location: "Phnom Penh, Cambodia",
     status: "Active",
@@ -22,7 +22,7 @@ function About({ isKhmer }) {
         <div className="space-y-6">
           <div>
             <p className="section-kicker">{isKhmer ? "អំពីខ្ញុំ" : "About Me"}</p>
-            <h2 className="section-title">
+            <h2 className="section-title text-sm md:text-2xl w-full md:w-full">
               {isKhmer
                 ? "ខ្ញុំចូលចិត្តបង្កើត software ដែលស្អាត សាមញ្ញ និងងាយថែទាំ។"
                 : "I care about software that feels clean, simple, and maintainable."}
