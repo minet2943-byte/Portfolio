@@ -1,6 +1,10 @@
+import p1 from "../assets/images/mypic.jpg";
+import p2 from "../assets/images/lanadelrey.jpg";
+import p3 from "../assets/images/mypic.jpg";
+import p4 from "../assets/images/lanadelrey.jpg";
 export const copy = {
   en: {
-   
+    brand: "Seum Sokneth",
     role: "React and Java Developer",
     nav: {
       home: "Home",
@@ -27,6 +31,7 @@ export const copy = {
     footer: "Portfolio for Seum Sokneth",
   },
   km: {
+    brand: "Seum Sokneth",
     role: "អ្នកអភិវឌ្ឍន៍ React និង Java",
     nav: {
       home: "ទំព័រដើម",
@@ -57,70 +62,90 @@ export const copy = {
 export const certificates = {
   en: [
     {
-      title: "React Front-End Development",
+      title: "Internship Front-End Development",
       issuer: "Online Learning",
-      image: "https://i.pinimg.com/736x/99/ae/83/99ae8324c99a3101e670383bd2d7d517.jpg",
+      image: p3,
       year: "2026",
       status: "Completed",
-      focus: "Components, hooks, state, responsive UI",
+     
     },
     {
-      title: "Java Programming Foundation",
+      title: "Back-End Development",
       issuer: "University Coursework",
-      image: "https://i.pinimg.com/736x/bd/6a/fc/bd6afccec721e72fb04ceef504929828.jpg",
+      image:
+        "https://i.pinimg.com/736x/bd/6a/fc/bd6afccec721e72fb04ceef504929828.jpg",
       year: "2025",
       status: "Completed",
-      focus: "OOP, collections, control flow, problem solving",
+     
     },
     {
-      title: "Web Design Essentials",
+      title: "Front-End Web Design Essentials",
       issuer: "Self-Study",
-      image: "https://i.pinimg.com/736x/f3/31/52/f33152ad476953e12e41d6d1b527a74f.jpg",
+      image: p2,
       year: "2025",
       status: "Completed",
-      focus: "HTML, CSS, Tailwind CSS, layout systems",
+      
     },
     {
-      title: "Database and MySQL Basics",
+      title: "Ui/UX Design and Prototyping",
       issuer: "Practice Projects",
-      image: "https://i.pinimg.com/736x/c8/77/a0/c877a035cb98919e5876539cec86a542.jpg",
+      image: p4,
       year: "2025",
       status: "In Progress",
-      focus: "Schema design, CRUD, queries, relationships",
+     
+    },
+    {
+      title: "Hight School Diploma",
+      issuer: "Practice Projects",
+      image: p1,
+      year: "2025",
+      status: "In Progress",
+      
     },
   ],
   km: [
     {
-      title: "React Front-End Development",
+      title: "Internship in React Front-End Development",
       issuer: "Online Learning",
-      image: "/images/cert-1.png",
+      image: p3,
       year: "2026",
       status: "Completed",
       focus: "Components, hooks, state, responsive UI",
     },
     {
-      title: "Java Programming Foundation",
+      title: "Back-End Development with Java and Spring Boot",
       issuer: "University Coursework",
-      image: "/images/cert-2.png",
+      image:
+        "https://i.pinimg.com/736x/bd/6a/fc/bd6afccec721e72fb04ceef504929828.jpg",
       year: "2025",
       status: "Completed",
       focus: "OOP, collections, control flow, problem solving",
     },
     {
-      title: "Web Design Essentials",
+      title: "Front-End Web Design Essentials",
       issuer: "Self-Study",
-      image: "/images/cert-3.png",
+      image: p2,
       year: "2025",
       status: "Completed",
-      focus: "HTML, CSS, Tailwind CSS, layout systems",
+      focus: "React.js, JavaScript, HTML, CSS, Tailwind CSS, layout systems",
     },
     {
-      title: "Database and MySQL Basics",
+      title: "Ui/UX Design and Prototyping",
       issuer: "Practice Projects",
-      image: "/images/cert-4.png",
+      image: p4,
       year: "2025",
       status: "In Progress",
-      focus: "Schema design, CRUD, queries, relationships",
+      focus:
+        "User interface design, prototyping, wireframing, usability testing",
+    },
+    {
+      title: "Hight School Diploma",
+      issuer: "Practice Projects",
+      image: p1,
+      year: "2025",
+      status: "In Progress",
+      focus:
+        "User interface design, prototyping, wireframing, usability testing",
     },
   ],
 };
@@ -147,7 +172,7 @@ export const skills = {
         id: "backend",
         title: "Back-End",
         icon: "{ }",
-        items: ["Java", "Spring Boot", "REST API", "MySQL", "PostgreSQL"],
+        items: ["Java", "Spring Boot", "REST API", "MySQL", "PostgreSQL", "PHP", "Laravel"],
         barsTitle: "Back-End",
         bars: [
           { name: "Java", level: 90 },
@@ -155,6 +180,8 @@ export const skills = {
           { name: "REST API", level: 86 },
           { name: "MySQL", level: 90 },
           { name: "PostgreSQL", level: 80 },
+          { name: "PHP", level: 78 },
+          { name: "Laravel", level: 75 },
         ],
       },
       {
@@ -207,7 +234,7 @@ export const skills = {
         id: "backend",
         title: "ផ្នែកខាងក្រោយ",
         icon: "{ }",
-        items: ["Java", "Spring Boot", "REST API", "PostgreSQL", "MySQL"],
+        items: ["Java", "Spring Boot", "REST API", "PostgreSQL", "MySQL", "PHP", "Laravel"],
         barsTitle: "ផ្នែកខាងក្រោយ",
         bars: [
           { name: "Java", level: 90 },
@@ -215,6 +242,8 @@ export const skills = {
           { name: "REST API", level: 86 },
           { name: "MySQL", level: 82 },
           { name: "PostgreSQL", level: 80 },
+          { name: "PHP", level: 78 },
+          { name: "Laravel", level: 75 },
         ],
       },
       {
@@ -251,40 +280,46 @@ export const skills = {
 export const projects = {
   en: [
     {
-      name: "Portfolio Website",
+      name: "E-commerce Website",
       type: "React UI",
+      link: "https://cyber-store-project-seven.vercel.app/",
       description:
         "A personal brand site with smooth navigation, responsive sections, and a clean presentation of skills and work.",
     },
     {
-      name: "Student Management API",
-      type: "Spring Boot",
+      name: "Student Attendance System",
+      type: "React + Spring Boot",
+      link: "https://minet2943-byte.github.io/System_Attendance/#/login",
       description:
-        "A backend service for managing student data with CRUD endpoints, validation, and MySQL persistence.",
+        "A backend service for managing student data with CRUD endpoints, validation, and PostgreSQL persistence.",
     },
     {
       name: "Admin Dashboard",
       type: "Full Stack",
+      link: "",
       description:
         "A dashboard concept connecting frontend components to backend services for monitoring records and activity.",
     },
   ],
   km: [
     {
-      name: "Portfolio Website",
+      name: "E-commerce  Website",
       type: "React UI",
+      link: "https://cyber-store-project-seven.vercel.app/",
       description:
         "គេហទំព័រផ្ទាល់ខ្លួនដែលមាន navigation រលូន, responsive sections និងការបង្ហាញជំនាញបានច្បាស់។",
     },
     {
-      name: "Student Management API",
-      type: "Spring Boot",
+      name: "Student Attendance System",
+      type: "React + Spring Boot",
+      link: "https://minet2943-byte.github.io/System_Attendance/#/login",
       description:
-        "សេវា backend សម្រាប់គ្រប់គ្រងទិន្នន័យសិស្ស ជាមួយ CRUD endpoints, validation និង MySQL។",
+        "សេវា backend សម្រាប់គ្រប់គ្រងទិន្នន័យសិស្ស ជាមួយ CRUD endpoints, validation និង PostgreSQL។",
     },
     {
       name: "Admin Dashboard",
       type: "Full Stack",
+      link: "",
       description:
         "គំនិត dashboard ដែលភ្ជាប់ frontend components ជាមួយ backend services សម្រាប់មើល records និង activity។",
     },

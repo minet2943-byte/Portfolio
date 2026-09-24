@@ -1,93 +1,58 @@
+import { useState } from "react";
+import profileImageFallback from "../assets/image.png";
+import backgroundCard from "../assets/images/mypic.jpg";
+import useReveal from "../hooks/useReveal";
+
+const skills = [
+  { name: "React.js", mark: "R", tone: "react" },
+  { name: "Java", mark: "J", tone: "java" },
+  { name: "Spring Boot", mark: "S", tone: "spring" },
+  { name: "Docker", mark: "D", tone: "docker" },
+  { name: "Vue.js", mark: "V", tone: "vue" },
+  { name: "Laravel", mark: "L", tone: "laravel" },
+];
+
 function Home({
   isKhmer,
-  profileImage,
+  profileImage = profileImageFallback,
+  secondaryImage,
   role,
-  ctaPrimary,
-  ctaSecondary,
   location,
 }) {
+  const [isCardFlipped, setIsCardFlipped] = useState(false);
+  const [sectionRef, isRevealed] = useReveal();
+
   return (
     <section
       id="home"
-      className="mx-auto grid min-h-[calc(100vh-81px)] max-w-6xl items-center gap-14 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr]"
+      ref={sectionRef}
+      className={`reveal-section mx-auto grid min-h-[calc(100vh-81px)] max-w-6xl items-center gap-14 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] ${isRevealed ? "is-revealed" : ""}`}
     >
-      <div className="max-w-2xl">
-        <p className="section-kicker">{isKhmer ? "Portfolio" : "Portfolio"}</p>
+      <div className="home-copy-entrance order-2 max-w-2xl lg:order-1">
+        <p className="section-kicker">Portfolio</p>
         <div className="mt-8">
-         <div className="mt-4">
+          <div className="mt-4">
             <div className="fx-typewriter">WEBDEVELOPER</div>
           </div>
-          {/* <div
-            className="fx-wave inline-flex gap-1"
-            role="img"
-            aria-label="WAVE"
-          >
-            <b aria-hidden="true" style={{ "--i": "0" }}>
-              W{" "}
-            </b>
-            <b aria-hidden="true" style={{ "--i": "1" }}>
-              A
-            </b>
-            <b aria-hidden="true" style={{ "--i": "2" }}>
-              B
-            </b>
-            <b aria-hidden="true" style={{ "--i": "3" }}>
-              D
-            </b>
-            <b aria-hidden="true" style={{ "--i": "4" }}>
-              E
-            </b>
-            <b aria-hidden="true" style={{ "--i": "5" }}>
-              V
-            </b>
-            <b aria-hidden="true" style={{ "--i": "6" }}>
-              E
-            </b>
-            <b aria-hidden="true" style={{ "--i": "7" }}>
-              L
-            </b>
-            <b aria-hidden="true" style={{ "--i": "8" }}>
-              O
-            </b>
-            <b aria-hidden="true" style={{ "--i": "9" }}>
-              P
-            </b>
-            <b aria-hidden="true" style={{ "--i": "10" }}>
-              E
-            </b>
-            <b aria-hidden="true" style={{ "--i": "11" }}>
-              R
-            </b>
-          </div> */}
-
           <div className="mt-4">
-            <div className="fx-aurora font-extrabold leading-tight">
+            <h1 className="fx-aurora font-extrabold leading-tight">
               "Hi, I'm Seum Sokneth. I build modern web experiences with React
               and Spring Boot."
-            </div>
+            </h1>
           </div>
         </div>
-        {/* <h1 className="text-3xl font-extrabold leading-tight">
-          {isKhmer
-            ? "សួស្តី ខ្ញុំជា Seum Sokneth។ ខ្ញុំបង្កើត modern web experiences ដោយប្រើ React និង Spring Boot។"
-            : "Hi, I'm Seum Sokneth. I build modern web experiences with React and Spring Boot."}
-        </h1> */}
-
         <p className="mt-6 max-w-xl text-base leading-8 text-(--muted)">
           {isKhmer
             ? "ខ្ញុំចូលចិត្តសាងសង់ UI ស្អាតៗ និង backend services ដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់ សម្រាប់ projects ដែលអាចប្រើការពិតបាន។"
             : "I enjoy building polished interfaces and structured backend services for projects that solve real problems."}
         </p>
-{/* 
-        <div className="mt-8 flex flex-wrap gap-4">
-          <a href="#projects" className="button-primary ">
-            {ctaPrimary}
-          </a>
-          <a href="#contact" className="button-secondary">
-            {ctaSecondary}
-          </a>
-        </div> */}
-
+        <a
+          href="/resume.pdf"
+          download="SeumSokneth_Cv.pdf"
+          className="mt-8 inline-flex items-center rounded-full border border-(--accent) px-5 py-3 text-sm font-semibold text-(--accent) transition hover:bg-(--accent) hover:text-(--surface)"
+        >
+          Download CV
+        </a>
         <div className="mt-10 flex flex-wrap gap-8 text-sm text-(--muted)">
           <div>
             <p className="font-semibold text-(--text)">01+</p>
@@ -104,14 +69,72 @@ function Home({
         </div>
       </div>
 
-      <div className="relative flex justify-center lg:justify-end">
-        <div className="absolute inset-x-8 inset-y-8 rounded-4xl bg-(--accent)/20 blur-3xl" />
-        <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-3 shadow-2xl shadow-black/20">
+      <div className="student-card-stage student-card-arrival order-1 relative flex justify-center lg:order-2 lg:justify-end">
+        <div className="student-card-hanging">
           <img
-            src={profileImage}
-            alt="Seum Sokneth portrait"
-            className="h-80 w-60 rounded-3xl object-cover sm:h-95 sm:w-70"
+            className="student-card-background-image"
+            src={backgroundCard}
+            alt=""
+            aria-hidden="true"
           />
+          <button
+            type="button"
+            className={`student-card ${isCardFlipped ? "is-flipped" : ""}`}
+            onClick={() => setIsCardFlipped((current) => !current)}
+            aria-label={
+              isCardFlipped
+                ? "Show student card front"
+                : "Show student card skills"
+            }
+            aria-pressed={isCardFlipped}
+          >
+            <span className="student-card-hook" aria-hidden="true" />
+
+            {/* Card Front Side */}
+            <div className="student-card-side student-card-front">
+              <span className="student-card-hole" />
+              <h2 className="student-card-title">
+                STUDENT
+                <br />
+                DEVELOPER CARD
+              </h2>
+              <img
+                className="student-card-profile-image"
+                src={profileImage}
+                alt="Seum Sokneth"
+              />
+              <div className="student-card-secondary-content">
+                <img
+                  className="student-card-secondary-image"
+                  src="https://images.prismic.io/turing/aAsoBPIqRLdaBmLZ_016-Blog_Hero_1232-770.png?auto=format,compress"
+                  alt="Spring and Spring Boot"
+                />
+              </div>
+              <span className="student-card-name">SEUM SOKNETH</span>
+              <span className="student-card-role">{role}</span>
+            </div>
+
+            {/* Card Back Side */}
+            <div
+              className="student-card-side student-card-back"
+              aria-hidden={!isCardFlipped}
+            >
+              <h2 className="student-card-back-title">MY SKILLS</h2>
+              <div className="student-skill-grid">
+                {skills.map((skill) => (
+                  <div className="student-skill" key={skill.name}>
+                    <span
+                      className={`student-skill-mark student-skill-${skill.tone}`}
+                    >
+                      {skill.mark}
+                    </span>
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+              <span className="student-card-back-name">SEUM / 2026</span>
+            </div>
+          </button>
         </div>
       </div>
     </section>

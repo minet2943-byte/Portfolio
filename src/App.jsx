@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import profileImage from "./assets/image.png";
+import heroImage from "./assets/hero.png";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Skill from "./pages/Skill";
 import Project from "./pages/Project";
-import Certificate from "./pages/Certificate";
 import Contact from "./pages/Contact";
 
-import { certificates, copy, projects, skills } from "./data/portfolioData";
+import { copy, projects, skills } from "./data/portfolioData";
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isKhmer, setIsKhmer] = useState(false);
   const [activeSkillGroup, setActiveSkillGroup] = useState("frontend");
@@ -23,21 +24,46 @@ function App() {
       return storedTheme;
     }
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   });
 
   const t = isKhmer ? copy.km : copy.en;
   const skillItems = isKhmer ? skills.km : skills.en;
   const projectItems = isKhmer ? projects.km : projects.en;
-  const certificateItems = isKhmer ? certificates.km : certificates.en;
   const isDark = theme === "dark";
   const selectedSkillGroup =
-    skillItems.groups.find((group) => group.id === activeSkillGroup) ?? skillItems.groups[0];
+    skillItems.groups.find((group) => group.id === activeSkillGroup) ??
+    skillItems.groups[0];
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("portfolio-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    const introTimer = window.setTimeout(() => setShowIntro(false), 2800);
+
+    return () => window.clearTimeout(introTimer);
+  }, []);
+
+  if (showIntro) {
+    return (
+      <div
+        className="intro-screen"
+        role="status"
+        aria-label="Loading portfolio"
+      >
+        <div className="intro-count" aria-live="polite">
+          <span style={{ "--count-delay": "0s" }}>1</span>
+          <span style={{ "--count-delay": "0.7s" }}>2</span>
+          <span style={{ "--count-delay": "1.4s" }}>3</span>
+        </div>
+        <p className="intro-label">SEUM SOKNETH / PORTFOLIO</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-(--surface) text-(--text)">
@@ -48,12 +74,8 @@ function App() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-(--line) bg-(--surface-header) backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-xl font-semibold tracking-[0.24em] uppercase">
-            {t.brand}
-          </a>
-
-          <nav className="hidden items-center gap-8 text-sm text-(--muted) md:flex">
+        <div className="relative mx-auto flex max-w-6xl items-center justify-end px-6 py-4">
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm text-(--muted) md:flex">
             <a href="#home" className="transition hover:text-(--text)">
               {t.nav.home}
             </a>
@@ -63,9 +85,7 @@ function App() {
             <a href="#projects" className="transition hover:text-(--text)">
               {t.nav.projects}
             </a>
-            <a href="#certificates" className="transition hover:text-(--text)">
-              {t.nav.certificates}
-            </a>
+
             <a href="#about" className="transition hover:text-(--text)">
               {t.nav.about}
             </a>
@@ -77,7 +97,9 @@ function App() {
           <div className="flex items-center gap-3">
             <button
               type="button"
-              onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+              onClick={() =>
+                setTheme((current) => (current === "dark" ? "light" : "dark"))
+              }
               className="rounded-full border border-(--line) px-4 py-2 text-xs font-medium tracking-[0.2em] uppercase transition hover:border-(--accent) hover:text-(--accent)"
             >
               {isDark ? "Light" : "Dark"}
@@ -112,9 +134,7 @@ function App() {
               <a href="#projects" onClick={() => setMenuOpen(false)}>
                 {t.nav.projects}
               </a>
-              <a href="#certificates" onClick={() => setMenuOpen(false)}>
-                {t.nav.certificates}
-              </a>
+
               <a href="#about" onClick={() => setMenuOpen(false)}>
                 {t.nav.about}
               </a>
@@ -130,6 +150,7 @@ function App() {
         <Home
           isKhmer={isKhmer}
           profileImage={profileImage}
+          secondaryImage={heroImage}
           role={t.role}
           ctaPrimary={t.ctaPrimary}
           ctaSecondary={t.ctaSecondary}
@@ -145,12 +166,10 @@ function App() {
           label={t.nav.skills}
         />
 
-        <Project label={t.projectsLabel} projectItems={projectItems} title={t.projectsTitle} />
-
-        <Certificate
-          certificateItems={certificateItems}
-          label={t.certificatesLabel}
-          title={t.certificatesTitle}
+        <Project
+          label={t.projectsLabel}
+          projectItems={projectItems}
+          title={t.projectsTitle}
         />
 
         <About isKhmer={isKhmer} />
@@ -173,4 +192,3 @@ function App() {
 }
 
 export default App;
-

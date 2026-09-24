@@ -1,3 +1,6 @@
+import useReveal from "../hooks/useReveal";
+import profileImage from "../assets/images/mypic.jpg";
+
 const educationItems = [
   {
     school: "Royal University of Phnom Penh",
@@ -16,13 +19,21 @@ const educationItems = [
 ];
 
 function About({ isKhmer }) {
+  const [sectionRef, isRevealed] = useReveal();
+
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-24">
-      <div className="about-showcase">
-        <div className="space-y-6">
+    <section
+      id="about"
+      ref={sectionRef}
+      className={`reveal-section mx-auto max-w-6xl px-6 py-24 ${isRevealed ? "is-revealed" : ""}`}
+    >
+      <div className="about-showcase md:grid-cols-[1.1fr_0.9fr] md:items-start">
+        <div className="order-2 space-y-6 md:order-1">
           <div>
-            <p className="section-kicker">{isKhmer ? "អំពីខ្ញុំ" : "About Me"}</p>
-            <h2 className="section-title text-sm md:text-2xl w-full md:w-full">
+            <p className="section-kicker">
+              {isKhmer ? "អំពីខ្ញុំ" : "About Me"}
+            </p>
+            <h2 className="section-title text-2xl md:text-4xl">
               {isKhmer
                 ? "ខ្ញុំចូលចិត្តបង្កើត software ដែលស្អាត សាមញ្ញ និងងាយថែទាំ។"
                 : "I care about software that feels clean, simple, and maintainable."}
@@ -62,6 +73,14 @@ function About({ isKhmer }) {
               </article>
             ))}
           </div>
+        </div>
+
+        <div className="about-portrait-wrap order-1 md:order-2">
+          <img
+            className="about-portrait"
+            src={profileImage}
+            alt="Seum Sokneth"
+          />
         </div>
       </div>
     </section>
